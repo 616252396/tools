@@ -1,0 +1,4 @@
+say -o 1.m4a -f /data/code/stock/book/毛泽东
+
+ffmpeg -i 1.m4a 毛泽东.mp3
+rm -rf 1.m4a
