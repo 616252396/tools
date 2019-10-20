@@ -10,17 +10,18 @@ function href($url, $name, $count = '')
 
 function out($path = "/data/git/RenZhengfei/2013/20131105_在GTS网规网优业务座谈会上的讲话.md")
 {
-    system("rm -rf 1.m4a");
     $cmd = "say -o 1.m4a -f " . $path;
     system($cmd);
     $arr=explode('/',$path);
-    $cmd = "mkdir ren/ ".$arr[4];
+    $cmd = "mkdir /data/code/tools/ren/".$arr[4];
     system($cmd);
     $path = str_replace('git/RenZhengfei', 'code/tools/ren', $path);
     $path = str_replace('.md', '.mp3', $path);
     $cmd = "ffmpeg -i 1.m4a " . $path;
     print_r($cmd);
     system($cmd);
+    system("rm -rf 1.m4a");
+
 
 }
 
@@ -48,7 +49,7 @@ function getDirFile($path)
                         if (substr_count("$path/$file", "/") > 1) {
                             $count = str_repeat("&nbsp&nbsp&nbsp&nbsp", substr_count("$path/$file", "/"));
 //                            href ("$path/$file",$file,$count);
-                            echo "$path/$file";
+                            out("$path/$file");
                         } else {
 //                            echo $file;
 
@@ -65,6 +66,4 @@ function getDirFile($path)
     }
 }
 
-out();
-//$arr=getDirFile("/data/git/RenZhengfei");
-//print_r($arr);die;
+$arr=getDirFile("/data/git/RenZhengfei");
