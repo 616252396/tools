@@ -1,0 +1,8 @@
+进入小程序目录列表
+cd /data/data/com.tencent.mm/MicroMsg/9b42b59a6c0722e7afe44b55151346f3/appbrand/pkg
+
+复制文件到指定
+cp _1710050095_43.wxapkg  /sdcard/game_code/aaa.wxapkg
+
+拉取目录文件到电脑当前目录下
+adb pull /sdcard/game_code/aaa.wxapkg
